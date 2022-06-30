@@ -20,8 +20,9 @@ class SimpleImage {
    * @param {object} api — Editor.js Core API {@link  https://editorjs.io/api}
    * @param {ImageToolConfig} config — custom config that we provide to our tool's user
    */
-  constructor({data, api, config}){
+  constructor({data, api, config, readOnly}){
     this.api = api;
+    this.readOnly = readOnly;
     this.config = config || {};
     this.data = {
       url: data.url || '',
@@ -84,7 +85,7 @@ class SimpleImage {
     const caption = document.createElement('div');
 
     image.src = url;
-    caption.contentEditable = true;
+    caption.contentEditable = !this.readOnly;
     caption.innerHTML = captionText || '';
 
     this.wrapper.innerHTML = '';
