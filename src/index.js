@@ -19,8 +19,9 @@ class SimpleImage {
    * @param {ImageToolData} data — previously saved data
    * @param {object} api — Editor.js Core API {@link  https://editorjs.io/api}
    * @param {ImageToolConfig} config — custom config that we provide to our tool's user
+   * readOnly - read-only mode flag
    */
-  constructor({data, api, config, readOnly}){
+  constructor({ data, config, api, readOnly }) {
     this.api = api;
     this.readOnly = readOnly;
     this.config = config || {};
@@ -153,6 +154,15 @@ class SimpleImage {
         i: true
       }
     }
+  }
+
+  /**
+   * Notify core that read-only mode is suppoorted
+   *
+   * @returns {boolean}
+   */
+  static get isReadOnlySupported() {
+    return true;
   }
 
   /**
