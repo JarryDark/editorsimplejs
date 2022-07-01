@@ -241,17 +241,17 @@ class SimpleImage {
         const imgTag = event.detail.data;
         this._createImage(imgTag.src);
         break;
-      case 'file':
-        /* We need to read file here as base64 string */
-        const file = event.detail.file;
-        const reader = new FileReader();
+      // case 'file':
+      //   /* We need to read file here as base64 string */
+      //   const file = event.detail.file;
+      //   const reader = new FileReader();
 
-        reader.onload = (loadEvent) => {
-          this._createImage(loadEvent.target.result);
-        };
+      //   reader.onload = (loadEvent) => {
+      //     this._createImage(loadEvent.target.result);
+      //   };
 
-        reader.readAsDataURL(file);
-        break;
+      //   reader.readAsDataURL(file);
+      //   break;
       case 'pattern':
         const src = event.detail.data;
 
